@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ráfaga de Libertad - La Red</title>
+    <style>
+        body, html {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #0d0d0d; color: #e0e0e0; overflow-x: hidden;
+        }
+
+        /* Pantalla de inicio para permitir el Audio/Video */
+        #start-screen {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #000; z-index: 9999;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+        }
+        #start-btn {
+            padding: 20px 40px; font-size: 1.5rem; font-family: 'Courier New', Courier, monospace;
+            background: transparent; color: #ff0055; border: 2px solid #ff0055;
+            cursor: pointer; text-transform: uppercase; letter-spacing: 5px;
+            transition: 0.3s; box-shadow: 0 0 15px rgba(255, 0, 85, 0.5);
+        }
+        #start-btn:hover { background: #ff0055; color: #000; }
+
+        /* Contenedor del Video */
+        .video-container {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -2; overflow: hidden;
+        }
+        video {
+            min-width: 100%; min-height: 100%;
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            filter: grayscale(30%) brightness(40%) contrast(120%);
+        }
+
+        /* Capa oscura sobre el video */
+        .overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.65); z-index: -1;
+        }
+
+        /* Contenido Principal */
+        .content {
+            position: relative; z-index: 1; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; min-height: 100vh;
+            text-align: center; padding: 20px;
+        }
+
+        h1 {
+            font-size: 4rem; margin-bottom: 10px; text-transform: uppercase;
+            letter-spacing: 8px; color: #d4af37; text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+            animation: glitch 3s infinite;
+        }
+
+        p.slogan { font-size: 1.3rem; max-width: 800px; margin-bottom: 40px; font-style: italic; color: #ccc; }
+
+        /* Botones de Venta */
+        .cta-buttons { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 40px; }
+        .btn {
+            padding: 15px 30px; text-decoration: none; font-weight: bold; font-size: 1.1rem;
+            text-transform: uppercase; border: 2px solid #d4af37; color: #d4af37;
+            background: rgba(0,0,0,0.5); transition: all 0.3s ease;
+        }
+        .btn:hover { background: #d4af37; color: #000; box-shadow: 0 0 20px rgba(212, 175, 55, 0.8); }
+
+        /* Redes Sociales */
+        .social-links { display: flex; gap: 30px; margin-top: 20px; }
+        .social-links a { color: #ff0055; text-decoration: none; font-size: 1.2rem; font-weight: bold; transition: 0.3s; }
+        .social-links a:hover { color: #fff; text-shadow: 0 0 10px #ff0055; }
+
+        /* Manifiesto */
+        .manifesto-section {
+            padding: 80px 20px; background: rgba(18, 18, 18, 0.9);
+            max-width: 800px; margin: 0 auto 50px auto; line-height: 1.8;
+            border-left: 4px solid #ff0055; text-align: left;
+        }
+        .manifesto-section h2 { color: #ff0055; }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            2% { transform: translate(-3px, 2px); }
+            4% { transform: translate(-3px, -2px); }
+            6% { transform: translate(3px, 2px); }
+            8% { transform: translate(3px, -2px); }
+            10% { transform: translate(0); }
+            100% { transform: translate(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="start-screen">
+        <button id="start-btn">INICIAR TRANSMISIÓN</button>
+        <p style="color:#555; margin-top:20px;">[Conexión encriptada - Haz clic para entrar]</p>
+    </div>
+
+    <audio id="bgAudio" loop>
+        <source src="musica.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="video-container">
+        <video id="bgVideo" loop playsinline>
+            <source src="background.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="overlay"></div>
+
+    <div class="content">
+        <h1>Ráfaga de Libertad</h1>
+        <p class="slogan">"Nos prometieron el futuro, pero solo nos dieron deudas. Así que decidimos cobrarles con lo único que les duele: Su símbolo más sagrado."</p>
+        
+        <div class="cta-buttons">
+            <a href="https://a.co/d/004K6HYz" target="_blank" class="btn">Comprar en Amazon</a>
+            <a href="https://books.google.com.mx/books/about?id=pvfWEQAAQBAJ&redir_esc=y" target="_blank" class="btn">Google Books</a>
+        </div>
+
+        <div class="social-links">
+            <a href="https://www.instagram.com/rafaga_de_libertad/" target="_blank">INSTAGRAM</a>
+            <a href="https://www.tiktok.com/@rafaga.de.libertad" target="_blank">TIKTOK</a>
+        </div>
+    </div>
+
+    <section class="manifesto-section">
+        <h2>EL MANIFIESTO VICTORIA</h2>
+        <p>No somos terroristas. Somos la Generación que se cansó de ser una pieza reemplazable en la Ciudad de México. Somos los que estudian años para terminar atrapados en el tráfico, reparando lavadoras o sirviendo café.</p>
+        <p>El Ángel de la Independencia no era libertad, era su attrezzo. Hoy, el pedestal está vacío para que el país finalmente aprenda a caminar sin muletas de bronce.</p>
+        <p style="color:#ff0055; font-weight:bold;">#LosDiezFaltan #SeLlevaronAlAngel</p>
+    </section>
+
+    <script>
+        document.getElementById('start-btn').addEventListener('click', function() {
+            // Ocultar pantalla de inicio
+            document.getElementById('start-screen').style.display = 'none';
+            // Reproducir Video y Audio
+            document.getElementById('bgVideo').play();
+            document.getElementById('bgAudio').play();
+        });
+    </script>
+</body>
+</html>

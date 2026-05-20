@@ -39,14 +39,14 @@
         /* Capa oscura sobre el video */
         .overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.65); z-index: -1;
+            background: rgba(0, 0, 0, 0.7); z-index: -1;
         }
 
         /* Contenido Principal */
         .content {
             position: relative; z-index: 1; display: flex; flex-direction: column;
-            align-items: center; justify-content: center; min-height: 100vh;
-            text-align: center; padding: 20px;
+            align-items: center; justify-content: flex-start; min-height: 100vh;
+            text-align: center; padding: 50px 20px;
         }
 
         h1 {
@@ -57,27 +57,44 @@
 
         p.slogan { font-size: 1.3rem; max-width: 800px; margin-bottom: 40px; font-style: italic; color: #ccc; }
 
-        /* Botones de Venta */
-        .cta-buttons { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-bottom: 40px; }
-        .btn {
-            padding: 15px 30px; text-decoration: none; font-weight: bold; font-size: 1.1rem;
-            text-transform: uppercase; border: 2px solid #d4af37; color: #d4af37;
-            background: rgba(0,0,0,0.5); transition: all 0.3s ease;
+        /* Sección de Banners con Imágenes */
+        .banners-container {
+            display: flex; gap: 30px; flex-wrap: wrap; justify-content: center; margin-bottom: 40px;
+            width: 100%; max-width: 1000px;
         }
-        .btn:hover { background: #d4af37; color: #000; box-shadow: 0 0 20px rgba(212, 175, 55, 0.8); }
+        .banner-link {
+            display: block; width: 100%; max-width: 400px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .banner-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+        .banner-link img {
+            width: 100%; height: auto; border-radius: 10px; border: 2px solid #333;
+        }
 
         /* Redes Sociales */
-        .social-links { display: flex; gap: 30px; margin-top: 20px; }
-        .social-links a { color: #ff0055; text-decoration: none; font-size: 1.2rem; font-weight: bold; transition: 0.3s; }
-        .social-links a:hover { color: #fff; text-shadow: 0 0 10px #ff0055; }
+        .social-links { display: flex; gap: 30px; margin-bottom: 50px; }
+        .social-links a { 
+            color: #ff0055; text-decoration: none; font-size: 1.5rem; 
+            font-weight: bold; transition: 0.3s; padding: 10px 20px;
+            border: 1px solid #ff0055; border-radius: 5px; background: rgba(0,0,0,0.5);
+        }
+        .social-links a:hover { color: #fff; background: #ff0055; box-shadow: 0 0 15px #ff0055; }
 
-        /* Manifiesto */
+        /* Imagen de la Comunidad y Manifiesto */
+        .community-img {
+            width: 100%; max-width: 800px; height: auto; border-radius: 10px; margin-bottom: 20px;
+            border: 2px solid #d4af37;
+        }
+
         .manifesto-section {
-            padding: 80px 20px; background: rgba(18, 18, 18, 0.9);
+            padding: 40px 20px; background: rgba(18, 18, 18, 0.9);
             max-width: 800px; margin: 0 auto 50px auto; line-height: 1.8;
             border-left: 4px solid #ff0055; text-align: left;
         }
-        .manifesto-section h2 { color: #ff0055; }
+        .manifesto-section h2 { color: #ff0055; font-size: 2rem; }
 
         @keyframes glitch {
             0% { transform: translate(0); }
@@ -112,29 +129,33 @@
         <h1>Ráfaga de Libertad</h1>
         <p class="slogan">"Nos prometieron el futuro, pero solo nos dieron deudas. Así que decidimos cobrarles con lo único que les duele: Su símbolo más sagrado."</p>
         
-        <div class="cta-buttons">
-            <a href="https://a.co/d/004K6HYz" target="_blank" class="btn">Comprar en Amazon</a>
-            <a href="https://books.google.com.mx/books/about?id=pvfWEQAAQBAJ&redir_esc=y" target="_blank" class="btn">Google Books</a>
+        <div class="banners-container">
+            <a href="https://a.co/d/004K6HYz" target="_blank" class="banner-link">
+                <img src="banner_amazon.png" alt="Comprar en Amazon Kindle">
+            </a>
+            <a href="https://books.google.com.mx/books/about?id=pvfWEQAAQBAJ&redir_esc=y" target="_blank" class="banner-link">
+                <img src="banner_google.png" alt="Comprar en Google Books">
+            </a>
         </div>
 
         <div class="social-links">
-            <a href="https://www.instagram.com/rafaga_de_libertad/" target="_blank">INSTAGRAM</a>
-            <a href="https://www.tiktok.com/@rafaga.de.libertad" target="_blank">TIKTOK</a>
+            <a href="https://www.instagram.com/rafaga_de_libertad/" target="_blank">📷 INSTAGRAM</a>
+            <a href="https://www.tiktok.com/@rafaga.de.libertad" target="_blank">🎵 TIKTOK</a>
         </div>
-    </div>
 
-    <section class="manifesto-section">
-        <h2>EL MANIFIESTO VICTORIA</h2>
-        <p>No somos terroristas. Somos la Generación que se cansó de ser una pieza reemplazable en la Ciudad de México. Somos los que estudian años para terminar atrapados en el tráfico, reparando lavadoras o sirviendo café.</p>
-        <p>El Ángel de la Independencia no era libertad, era su attrezzo. Hoy, el pedestal está vacío para que el país finalmente aprenda a caminar sin muletas de bronce.</p>
-        <p style="color:#ff0055; font-weight:bold;">#LosDiezFaltan #SeLlevaronAlAngel</p>
-    </section>
+        <img src="comunidad.png" alt="Comunidad Los Diez de la Rosa Pastel" class="community-img">
+        
+        <section class="manifesto-section">
+            <h2>EL MANIFIESTO VICTORIA</h2>
+            <p>No somos terroristas. Somos la Generación que se cansó de ser una pieza reemplazable en la Ciudad de México. Somos los que estudian años para terminar atrapados en el tráfico, reparando lavadoras o sirviendo café.</p>
+            <p>El Ángel de la Independencia no era libertad, era su attrezzo. Hoy, el pedestal está vacío para que el país finalmente aprenda a caminar sin muletas de bronce.</p>
+            <p style="color:#ff0055; font-weight:bold;">#LosDiezFaltan #SeLlevaronAlAngel #RafagaDeLibertad</p>
+        </section>
+    </div>
 
     <script>
         document.getElementById('start-btn').addEventListener('click', function() {
-            // Ocultar pantalla de inicio
             document.getElementById('start-screen').style.display = 'none';
-            // Reproducir Video y Audio
             document.getElementById('bgVideo').play();
             document.getElementById('bgAudio').play();
         });
